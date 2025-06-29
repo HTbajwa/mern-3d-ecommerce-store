@@ -1,0 +1,21 @@
+const express = require('express')
+// const addtocartlist = require('../controllers/cart/addtocartlist')
+// const addtocartdelete = require('../controllers/cart/addtocartdelete')
+const authenticateToken = require('../middlewares/verifytoken')
+const addtowishlist = require('../controllers/wishlist/addtowishlist')
+const wishlist_list = require('../controllers/wishlist/wishlist_list')
+const removewishlist = require('../controllers/wishlist/frontend/removewishlist')
+const wishlistcount = require('../controllers/wishlist/frontend/wishlistcount')
+const itemwishlist = require('../controllers/wishlist/frontend/itemwishlist')
+const checkuser = require('../middlewares/checkuser')
+const router = express.Router()
+
+router.post('/',authenticateToken,addtowishlist)
+router.get('/',wishlist_list)
+router.get('/wishlistitem',authenticateToken,itemwishlist)
+// router.get('/addtocartlist',authenticateToken,addtocartlist)
+router.get('/wishlistcount',checkuser,wishlistcount)
+router.post('/removewishlist',authenticateToken,removewishlist)
+// router.delete('/:cart_id',addtocartdelete)
+
+module.exports = router
