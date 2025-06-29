@@ -17,7 +17,7 @@ const port=8000;
 const bodyParser=require("body-parser")
 const cors=require("cors");
 const connectdb = require("./db/connection");
-const database="mongodb+srv://tariqhadia12:hadiatariq@cluster0.gjl7f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const database="process.env.MONGODB_URI";
 app.use((req, res, next) => {
     console.log(`${req.method} request for ${req.url} - Headers:`, req.headers);
     next();
