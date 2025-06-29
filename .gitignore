@@ -26,3 +26,11 @@ Thumbs.db
 
 # Test coverage
 coverage/
+
+# heavy files
+*.glb
+*.map
+*.wasm
+*.json
+*.mjs
+
