@@ -16,8 +16,11 @@ const app=express();
 const port=8000;
 const bodyParser=require("body-parser")
 const cors=require("cors");
+const dotenv = require('dotenv');
+dotenv.config();
+
 const connectdb = require("./db/connection");
-const database="process.env.MONGODB_URI";
+const database=process.env.MONGODB_URI;
 app.use((req, res, next) => {
     console.log(`${req.method} request for ${req.url} - Headers:`, req.headers);
     next();
